@@ -7,7 +7,7 @@ public class User {
     int gems;
     int coins;
     ArrayList<User>friends = new ArrayList<User>();
-    String purchases;
+
     public String getId() {
         return id;
     }
@@ -34,7 +34,6 @@ public class User {
     void updateRewards(){};
     void buyGems(){};
     void getCoins(){};
-    void purchaseBirds(Birds bird){};
     void changeDetails(){};
     void sendInv(){};
     void Logout(){};
