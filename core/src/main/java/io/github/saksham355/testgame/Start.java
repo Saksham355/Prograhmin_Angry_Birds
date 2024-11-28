@@ -12,10 +12,14 @@ import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.Json;
+import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 
-public class Start extends Game implements Screen {
+import java.io.Serializable;
+
+public class Start extends Game implements Screen  {
     private Game parent = null;
     private Stage stage;
     private SpriteBatch spriteBatch;
@@ -100,6 +104,7 @@ public class Start extends Game implements Screen {
         stage.act(Gdx.graphics.getDeltaTime());
         stage.draw();
         super.render();
+
     }
 
     @Override
@@ -109,4 +114,6 @@ public class Start extends Game implements Screen {
         backgroundTexture.dispose();
         enterTexture.dispose();
     }
+
+
 }

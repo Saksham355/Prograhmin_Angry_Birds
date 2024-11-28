@@ -1,6 +1,11 @@
 package io.github.saksham355.testgame;
 
-public class pig {
+import com.badlogic.gdx.utils.Json;
+import com.badlogic.gdx.utils.JsonValue;
+
+import java.io.Serializable;
+
+public class pig implements Serializable{
 
     String name;
     String img;
@@ -16,6 +21,8 @@ public class pig {
         this.name = name;
         this.img = img;
     }
+
+
 
 }
 

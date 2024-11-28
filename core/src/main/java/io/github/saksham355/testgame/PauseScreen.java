@@ -12,8 +12,13 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.Json;
+import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+
+import java.io.File;
+import java.io.Serializable;
 
 public class PauseScreen implements Screen {
     private Game parent;
@@ -45,12 +50,13 @@ public class PauseScreen implements Screen {
 
         resumeTexture = new Texture("playgame.png");
         resumeButton = new ImageButton(new TextureRegionDrawable(resumeTexture));
-        resumeButton.setSize(150, 50); // Adjust size as needed
+        resumeButton.setSize(150, 50);
         resumeButton.setPosition(viewport.getWorldWidth() / 2 - resumeButton.getWidth() / 2, viewport.getWorldHeight() / 2 + 20);
         resumeButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 System.out.println("Resume Button clicked! Returning to the game.");
+
                 parent.setScreen(previousScreen);
             }
         });
@@ -59,13 +65,26 @@ public class PauseScreen implements Screen {
         // Retry button setup
         retryTexture = new Texture("replay.png");
         retryButton = new ImageButton(new TextureRegionDrawable(retryTexture));
-        retryButton.setSize(150, 50); // Adjust size as needed
+        retryButton.setSize(150, 50);
         retryButton.setPosition(viewport.getWorldWidth() / 2 - retryButton.getWidth() / 2, viewport.getWorldHeight() / 2 - 80);
         retryButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 System.out.println("Retry Button clicked! Restarting the level.");
-                parent.setScreen(new level1(parent));
+//                previousScreen.dispose();
+                File datafile = null;
+                if(previousScreen instanceof level1) {
+                    datafile = new File("C:\\Users\\DELL\\OneDrive\\Documents\\sakshamsGame\\assets\\gamesave1.ser");
+                }
+                else if(previousScreen instanceof level2) {
+                    datafile = new File("gamesave2.ser");
+                } else if (previousScreen instanceof level3) {
+                    datafile = new File("gamesave3.ser");
+                }
+                System.out.println(datafile.delete());
+                System.out.println();
+                ScreenUtils.clear(0,0,0,1);
+                parent.setScreen(previousScreen);
             }
         });
         stage.addActor(retryButton);
@@ -119,4 +138,7 @@ public class PauseScreen implements Screen {
         retryTexture.dispose();
         closeTexture.dispose();
     }
+
+
+
 }

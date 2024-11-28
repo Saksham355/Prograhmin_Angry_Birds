@@ -13,7 +13,9 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 
-public class Lose implements Screen {
+import java.io.Serializable;
+
+public class Lose implements Screen{
     private SpriteBatch batch;
     private Texture backgroundTexture;
     private Texture winTexture;

@@ -11,10 +11,14 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.Json;
+import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 
-public class settings implements Screen {
+import java.io.Serializable;
+
+public class settings implements Screen  {
     private SpriteBatch spriteBatch;
     private Texture backgroundTexture;
     private FitViewport viewport;
@@ -112,4 +116,6 @@ public class settings implements Screen {
         backgroundTexture.dispose();
         backTexture.dispose();
     }
+
+
 }

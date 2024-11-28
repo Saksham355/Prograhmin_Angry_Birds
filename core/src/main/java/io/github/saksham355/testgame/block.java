@@ -1,8 +1,12 @@
 package io.github.saksham355.testgame;
 
 
+import com.badlogic.gdx.utils.Json;
+import com.badlogic.gdx.utils.JsonValue;
 
-public class block {
+import java.io.Serializable;
+
+public class block{
     String type;
     String img;
     int strength;
@@ -13,4 +17,6 @@ public class block {
         this.type = type;
         this.img = img;
     }
+
+
 }
