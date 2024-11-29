@@ -44,4 +44,6 @@ The project demonstrates the application of *Object-Oriented Programming princip
 - www.libgdx.com : For libgdx tutorials.
 - https://www.youtube.com/watch?v=_y1RvNWoRFU&list=PLD_bW3UTVsElsuvyKcYXHLnWb8bD0EQNI : Box2D tutorials.
 
+If an error is encoutered while running the test saying "could not delete directory...." please delete the directory in the path mention in the error.
+
 ---
