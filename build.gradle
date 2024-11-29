@@ -11,6 +11,7 @@ buildscript {
   dependencies {
 
 
+
   }
 }
 
@@ -70,4 +71,13 @@ subprojects {
   }
 }
 
+project(":core") {
+  apply plugin: "java"
+
+  dependencies {
+    // Jupiter api and engine dependencies
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.3'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.3'
+  }
+}
 eclipse.project.name = 'testgame' + '-parent'
