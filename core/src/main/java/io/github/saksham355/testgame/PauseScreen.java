@@ -74,7 +74,7 @@ public class PauseScreen implements Screen {
 //                previousScreen.dispose();
                 File datafile = null;
                 if(previousScreen instanceof level1) {
-                    datafile = new File("C:\\Users\\DELL\\OneDrive\\Documents\\sakshamsGame\\assets\\gamesave1.ser");
+                    datafile = new File("gamesave1.ser");
                 }
                 else if(previousScreen instanceof level2) {
                     datafile = new File("gamesave2.ser");

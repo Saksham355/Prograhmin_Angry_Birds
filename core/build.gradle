@@ -4,6 +4,9 @@ sourceSets.main.java.srcDirs = [ "src/main/java/" ]
 sourceSets.test.java.srcDirs = [ "src/test/java/" ]
 sourceSets.test.resources.srcDirs = [ "src/test/res/" ]
 dependencies {
+  testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.2'
+  testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.2'
+
   api "com.badlogicgames.box2dlights:box2dlights:$box2dlightsVersion"
   api "com.badlogicgames.gdx-controllers:gdx-controllers-core:$gdxControllersVersion"
   api "com.badlogicgames.gdx:gdx-ai:$aiVersion"
@@ -15,4 +18,8 @@ dependencies {
   if(enableGraalNative == 'true') {
     implementation "io.github.berstanio:gdx-svmhelper-annotations:$graalHelperVersion"
   }
+}
+test {
+  maxParallelForks = 3
+  useJUnitPlatform()
 }

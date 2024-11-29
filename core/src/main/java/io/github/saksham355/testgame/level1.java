@@ -427,7 +427,7 @@ public class level1 implements Screen  {
             collisionBodies.add(pigBody1);
             powerMap.put(redBird, 1);
             powerMap.put(yellowBird, 2);
-            powerMap.put(blackBird, 3);
+            powerMap.put(blackBird, 1);
             powerMap.put(w1, 1);
             powerMap.put(w2, 1);
             powerMap.put(w3, 1);
@@ -439,6 +439,7 @@ public class level1 implements Screen  {
             boundry.add(left);
         }
         else{
+            System.out.println(dataFile.getAbsolutePath());
             Level1Save data = Getlevel1save.getlevel1State("gamesave1.ser");
             if(data.isPig()){
                 pigBody1 = createCircular((int)data.getPigPosition().x,(int)data.getPigPosition().y, 25, false);
@@ -449,7 +450,7 @@ public class level1 implements Screen  {
             if(data.isBlackBird()){
                 blackBird = createCircular(115, 220, 20,  false);
                 birdBodies.add(blackBird);
-                powerMap.put(blackBird, 3);
+                powerMap.put(blackBird, 1);
             }
             if(data.isYellowBird()){
                 yellowBird = createCircular((int)data.getYellowBirdPosition().x, (int)data.getYellowBirdPosition().y, 20, data.isYellowBirdStatic());
