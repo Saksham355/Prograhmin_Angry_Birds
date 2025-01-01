@@ -1,33 +1,49 @@
-# testgame
+# Angry Birds Game Implementation
 
-A [libGDX](https://libgdx.com/) project generated with [gdx-liftoff](https://github.com/libgdx/gdx-liftoff).
+## Introduction
+This project is a Java-based implementation of the popular *Angry Birds* game using the *libGDX* framework. The game involves launching birds from a slingshot to destroy structures and eliminate pigs to progress through levels. It is developed as part of the *CSE 201: Advanced Programming* course.
 
-This project was generated with a template including simple application launchers and an `ApplicationAdapter` extension that draws libGDX logo.
+The project demonstrates the application of *Object-Oriented Programming principles, incorporates **design patterns, implements **game physics, and includes **serialization* for saving/restoring game states.
 
-## Platforms
+---
+### Core Gameplay
+- *Birds and Slingshot*: Drag and launch birds from the slingshot. Birds follow realistic trajectories based on angle and speed.
+- *Structures*: Buildings made of blocks (wood, glass, steel) break upon impact, depending on material durability.
+- *Pigs*: Pigs have varying sizes and health. They are destroyed when hit by birds or collapsing blocks.
+- *Win/Lose Conditions*:
+    - *Win*: All pigs are destroyed.
+    - *Lose*: All birds are used without eliminating all pigs.
 
-- `core`: Main module with the application logic shared by all platforms.
-- `lwjgl3`: Primary desktop platform using LWJGL3; was called 'desktop' in older docs.
+### Levels
+- *3 unique levels*, each featuring:
+    - Defined sets of birds and different structures.
+    - Pigs placed strategically to increase difficulty.
+    - Block power: Wood:1,Glass:2,Rock:3
+    - Bird power: Black>Yellow>Red
 
-## Gradle
+### Design Patterns
+- *Factory Pattern*: For creating birds, pigs, and blocks dynamically.
+- *Observer Pattern*: For updating game elements like score and UI in response to game events.
 
-This project uses [Gradle](https://gradle.org/) to manage dependencies.
-The Gradle wrapper was included, so you can run Gradle tasks using `gradlew.bat` or `./gradlew` commands.
-Useful Gradle tasks and flags:
+### Physics and Interactions
+- Realistic bird trajectories using *Box2D* physics.
+- Collisions between birds, blocks, and pigs, with cascading effects on block collapses.
 
-- `--continue`: when using this flag, errors will not stop the tasks from running.
-- `--daemon`: thanks to this flag, Gradle daemon will be used to run chosen tasks.
-- `--offline`: when using this flag, cached dependency archives will be used.
-- `--refresh-dependencies`: this flag forces validation of all dependencies. Useful for snapshot versions.
-- `build`: builds sources and archives of every project.
-- `cleanEclipse`: removes Eclipse project data.
-- `cleanIdea`: removes IntelliJ project data.
-- `clean`: removes `build` folders, which store compiled classes and built archives.
-- `eclipse`: generates Eclipse project data.
-- `idea`: generates IntelliJ project data.
-- `lwjgl3:jar`: builds application's runnable jar, which can be found at `lwjgl3/build/libs`.
-- `lwjgl3:run`: starts the application.
-- `test`: runs unit tests (if any).
+### Serialization
+- Custom classes for each level to save the existence and position of each physical body.
+- These are saved when the user clicks the pause button and then the data is always deserialized for that level.
+- The level can be reset by clicking the restart button in the pause menu
 
-Note that most tasks that are not specific to a single project can be run with `name:` prefix, where the `name` should be replaced with the ID of a specific project.
-For example, `core:clean` removes `build` folder only from the `core` project.
+### JUnit Testing
+- Testcases added for proper function of the serialization functions and deserialization functions
+### Run
+- Go to the Lwjg3Launcher (in lwjgl3 folder->src->java->io.github.saksham355.testgame.lwjgl3) and run the file
+
+### Sources
+- https://angrybirds.fandom.com/wiki/Angry_Birds_Wiki : For Assets of the game.
+- www.libgdx.com : For libgdx tutorials.
+- https://www.youtube.com/watch?v=_y1RvNWoRFU&list=PLD_bW3UTVsElsuvyKcYXHLnWb8bD0EQNI : Box2D tutorials.
+
+If an error is encoutered while running the test saying "could not delete directory...." please delete the directory in the path mention in the error.
+
+---
